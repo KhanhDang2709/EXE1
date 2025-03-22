@@ -23,7 +23,76 @@
     
         <button type="submit">Cập Nhật</button>
     </form>    
-   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const user = JSON.parse(localStorage.getItem("editUser"));
+            if (user) {
+                document.getElementById("username").value = user.username;
+                document.getElementById("email").value = user.email;
+                document.getElementById("password").value = user.password;
+                document.getElementById("confirmPassword").value = user.password;
+            } else {
+                alert("Không tìm thấy thông tin người dùng!");
+                window.location.href = "list.html"; // Quay lại danh sách nếu không có dữ liệu
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const user = JSON.parse(localStorage.getItem("editUser"));
+         if (user) {
+            document.getElementById("username").value = user.username;
+            document.getElementById("email").value = user.email;
+            document.getElementById("password").value = user.password;
+            document.getElementById("confirmPassword").value = user.password;
+        } else {
+            alert("Không tìm thấy thông tin người dùng!");
+            window.location.href = "list.html"; // Quay lại danh sách nếu không có dữ liệu
+        }
+
+            // Xử lý sự kiện cập nhật
+            document.getElementById("updateForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                // Lấy giá trị từ form
+                let updatedUsername = document.getElementById("username").value.trim();
+                let updatedEmail = document.getElementById("email").value.trim();
+                let updatedPassword = document.getElementById("password").value.trim();
+                let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+                // Kiểm tra nhập liệu
+                if (!updatedUsername || !updatedEmail || !updatedPassword || !confirmPassword) {
+                    alert("Vui lòng nhập đầy đủ thông tin!");
+                    return;
+                }
+
+                if (updatedPassword !== confirmPassword) {
+                    alert("Mật khẩu nhập lại không khớp!");
+                    return;
+                }
+
+                // Lấy danh sách người dùng từ localStorage
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+
+                // Tìm vị trí của user đang cập nhật
+                let userIndex = users.findIndex(u => u.id === user.id);
+                if (userIndex !== -1) {
+                    users[userIndex] = { 
+                        id: user.id, 
+                        username: updatedUsername, 
+                        email: updatedEmail, 
+                        password: updatedPassword 
+                    };
+                    localStorage.setItem("users", JSON.stringify(users)); // Lưu lại dữ liệu đã cập nhật
+                    alert("Cập nhật thành công!");
+                    window.location.href = "list.html"; // Chuyển hướng về danh sách người dùng
+                } else {
+                    alert("Không tìm thấy người dùng để cập nhật!");
+                }
+            });
+        });
+
+        </script>
+        
     <footer>
         <p>&copy; 2025 - EX1</p>
     </footer>

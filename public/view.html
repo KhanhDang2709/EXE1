@@ -7,20 +7,34 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="header"></div>
-
     <h2>Thông Tin Người Dùng</h2>
     <p><strong>Username:</strong> <span id="username"></span></p>
     <p><strong>Email:</strong> <span id="email"></span></p>
-    <button id="editUser">Chỉnh sửa</button>
-    <a href="list.html">Quay lại danh sách</a>
-    <script src="js/script.js"></script>
 
+    <button id="editUser">Chỉnh sửa</button>
+    <a href="list.html" class="back-button">Quay lại danh sách</a>
 
     <footer>
         <p>&copy; 2025 - EX1</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const user = JSON.parse(localStorage.getItem("viewUser"));
+
+            if (user) {
+                document.getElementById("username").textContent = user.username;
+                document.getElementById("email").textContent = user.email;
+
+                document.getElementById("editUser").addEventListener("click", function () {
+                    localStorage.setItem("editUser", JSON.stringify(user)); // Lưu để chỉnh sửa
+                    window.location.href = "update.html"; // Chuyển hướng đến trang update
+                });
+            } else {
+                alert("Không tìm thấy thông tin người dùng!");
+                window.location.href = "list.html"; // Quay lại danh sách nếu không có dữ liệu
+            }
+        });
+    </script>
 </body>
 </html>

@@ -84,3 +84,100 @@ nav a {
     width: 100%;
 }
 
+.view-btn, .edit-btn {
+    font-size: 12px; /* Giảm kích thước chữ */
+    padding: 4px 8px; /* Giảm kích thước nút */
+    border-radius: 4px; /* Bo góc nhẹ */
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.view-btn:hover, .edit-btn:hover {
+    background-color: #ddd;
+}
+
+#editUser {
+    display: inline-block; /* Giữ nút có kích thước vừa phải */
+    font-size: 14px; 
+    padding: 6px 12px; 
+    border-radius: 5px; 
+    border: 1px solid #007bff; 
+    background-color: #007bff; 
+    color: white; 
+    cursor: pointer;
+    text-align: center;
+    width: auto; /* Đảm bảo nút không kéo dài hết trang */
+}
+
+#editUser:hover {
+    background-color: #0056b3;
+}
+.back-button {
+    display: inline-block;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid #6c757d;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.back-button:hover {
+    background-color: #545b62;
+}
+
+/* Căn giữa bảng */
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Thiết kế bảng */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Thiết kế tiêu đề bảng */
+th {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Thiết kế các ô dữ liệu */
+td {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Dòng xen kẽ */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hiệu ứng hover */
+tr:hover {
+    background-color: #d0e7ff;
+    transition: 0.3s;
+}
+
+/* Căn giữa phân trang */
+.pagination-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
